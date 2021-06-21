@@ -1,5 +1,7 @@
 this repo is demonstrating the problems with ssr=true and fetching something that the internal vite-proxy should provide.
 
+see https://github.com/sveltejs/kit/issues/1729
+
 
 to test:
 
