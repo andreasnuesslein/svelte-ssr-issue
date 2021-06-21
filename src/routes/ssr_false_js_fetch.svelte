@@ -1,0 +1,21 @@
+<script lang="ts" context="module">
+  export const ssr = false;
+
+  export async function load() {
+
+    const res = await fetch('/api');
+    if (res.ok)
+      return {props: {content: await res.text()}};
+
+    return {
+      status: res.status,
+      error: new Error(`Could not fetch /api`),
+    };
+  }
+</script>
+
+<script>
+  export let content;
+</script>
+
+<h1>{content}</h1>
