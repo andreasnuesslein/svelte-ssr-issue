@@ -4,7 +4,6 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	preprocess: preprocess(),
 	kit: {
-		target: '#svelte',
 		vite: {
 			server: {
 				host: "0.0.0.0",

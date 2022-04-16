@@ -1,6 +1,4 @@
 <script lang="ts" context="module">
-  export const ssr = false;
-
   export async function load({fetch}) {
 
     const res = await fetch('/api');
