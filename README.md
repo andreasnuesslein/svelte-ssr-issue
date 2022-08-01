@@ -1,20 +1,14 @@
-this repo is demonstrating the problems with ssr=true and fetching something that the internal vite-proxy should provide.
+this repo is demonstrating the problem where hydration of the page resets input fields
 
-see https://github.com/sveltejs/kit/issues/1729
-
+see https://github.com/sveltejs/svelte/issues/1755
 
 to test:
+- run `npm run dev`
+- open new tab
+- set web browser "Throttling" to Fast 3G
+- navigate to http://localhost:5173/
+- as soon as possible enter something in the input field
+- after input you can disable throttling again
+- > the input field will be reset
 
-- run a small http-server on port 8000, e.g.: `/usr/bin/env python3 -m http.server`
-- then run `npm run dev`
-
-
-there are 4 routes, basically the same, only varying in `ssr=false/true` and `load({fetch}) / load(), js-fetch`:
-
-- http://localhost:3000/ssr_false
-- http://localhost:3000/ssr_false_js_fetch
-- http://localhost:3000/ssr_true
-- http://localhost:3000/ssr_true_js_fetch
-
-
-ssr_true should show the problem
+it is also reproducable with `npm run build && npm run preview`. however I had to set it to "slow 3g" to be fast enough to catch it in that case.
